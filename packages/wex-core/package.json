@@ -9,7 +9,7 @@
     "typescript": "^2.6.1"
   },
   "scripts": {
-    "dev": "tsc",
+    "dev": "tsc --watch",
     "build": "tsc -p tsconfig-build.json",
     "test": "test"
   },

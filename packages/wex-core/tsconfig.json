@@ -6,7 +6,7 @@
     "sourceMap": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "outDir": "dist",
+    "outDir": "../wex-demo/dist/lib",
     "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true
   },
