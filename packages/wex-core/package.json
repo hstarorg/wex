@@ -1,0 +1,22 @@
+{
+  "name": "wex-core",
+  "version": "0.0.1",
+  "description": "Tee wechat applet extention.",
+  "main": "lib/wex-core.js",
+  "types": "types",
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^2.6.1"
+  },
+  "scripts": {
+    "dev": "tsc",
+    "build": "tsc -p tsconfig-build.json",
+    "test": "test"
+  },
+  "keywords": [
+    "Wechat",
+    "Applet"
+  ],
+  "author": "Jay.M.Hu",
+  "license": "MIT"
+}
