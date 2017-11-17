@@ -12,6 +12,6 @@
   "license": "MIT",
   "devDependencies": {
     "typescript": "^2.6.1",
-    "wex-core": "file:///E:\\MyCodeLibrary\\wex\\packages\\wex-core"
+    "wex-core": "0.0.2"
   }
 }
