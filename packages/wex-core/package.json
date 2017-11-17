@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Tee wechat applet extention.",
   "main": "lib/wex-core.js",
-  "types": "types",
+  "types": "types/wex-core.d.ts",
   "dependencies": {},
   "devDependencies": {
     "typescript": "^2.6.1"
