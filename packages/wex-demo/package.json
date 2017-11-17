@@ -1,0 +1,17 @@
+{
+  "name": "wex-demo",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsc --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Jay.M.Hu",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^2.6.1",
+    "wex-core": "file:///E:\\MyCodeLibrary\\wex\\packages\\wex-core"
+  }
+}
