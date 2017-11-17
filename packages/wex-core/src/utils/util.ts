@@ -8,14 +8,14 @@ export const util = {
       if (excludeKeys.indexOf(k) >= 0) {
         return;
       }
-      config[k] = k;
+      config[k] = proto[k];
     });
     // 后实例
     Object.keys(obj).forEach(k => {
       if (excludeKeys.indexOf(k) >= 0) {
         return;
       }
-      config[k] = this[k];
+      config[k] = obj[k];
     });
     return config;
   }
