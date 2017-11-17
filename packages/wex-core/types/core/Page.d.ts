@@ -12,5 +12,5 @@ export interface Page {
 }
 export declare abstract class Page {
     constructor(options: any);
-    $$getPageObject(): {};
+    $$getPageObject(): object;
 }

@@ -1,17 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var index_1 = require("../utils/index");
 var Page = /** @class */ (function () {
     function Page(options) {
     }
     Page.prototype.$$getPageObject = function () {
-        var _this = this;
-        var config = {};
-        Object.keys(this).forEach(function (k) {
-            if (k !== '$$getPageObject') {
-                config[k] = _this[k];
-            }
-        });
-        return config;
+        return index_1.util.getConfigObject(this, ['$$getPageObject']);
     };
     return Page;
 }());

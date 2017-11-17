@@ -16,5 +16,5 @@ export interface App {
 }
 export declare abstract class App {
     constructor();
-    $$getAppObject(): {};
+    $$getAppObject(): object;
 }

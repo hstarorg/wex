@@ -1,3 +1,5 @@
+
+import { util } from '../utils/index';
 export interface Page {
   data: object;
   onLoad?(options: any): void;
@@ -17,12 +19,6 @@ export abstract class Page {
   }
 
   $$getPageObject() {
-    const config = {};
-    Object.keys(this).forEach(k => {
-      if (k !== '$$getPageObject') {
-        config[k] = this[k];
-      }
-    });
-    return config;
+    return util.getConfigObject(this, ['$$getPageObject']);
   }
 }

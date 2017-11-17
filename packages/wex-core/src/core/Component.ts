@@ -1,3 +1,4 @@
+import { util } from '../utils/index';
 export interface Component {
   // data: object;
   // onLoad?(options: any): void;
@@ -18,12 +19,6 @@ export class Component {
   }
 
   $$getComponentObject() {
-    const config = {};
-    Object.keys(this).forEach(k => {
-      if (k !== '$$getComponentObject') {
-        config[k] = this[k];
-      }
-    });
-    return config;
+    return util.getConfigObject(this, ['$$getComponentObject']);
   }
 }

@@ -1,3 +1,4 @@
+import { util } from '../utils/index';
 export interface LaunchOrShowConfig {
   path: string
   query: object,
@@ -22,12 +23,6 @@ export abstract class App {
   }
 
   $$getAppObject() {
-    const config = {};
-    Object.keys(this).forEach(k => {
-      if (k !== '$$getAppObject') {
-        config[k] = this[k];
-      }
-    });
-    return config;
+    return util.getConfigObject(this, ['$$getAppObject']);
   }
 }
