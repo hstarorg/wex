@@ -8,7 +8,10 @@
   },
   "dependencies": {
     "commander": "^2.11.0",
-    "gulp4": "^4.0.2"
+    "fs-extra": "^4.0.2",
+    "gulp-rename": "^1.2.2",
+    "gulp4": "^4.0.2",
+    "shelljs": "^0.7.8"
   },
   "scripts": {},
   "keywords": [],
