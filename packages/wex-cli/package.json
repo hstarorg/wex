@@ -1,0 +1,17 @@
+{
+  "name": "wex-cli",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "wex": "./wex.js"
+  },
+  "dependencies": {
+    "commander": "^2.11.0",
+    "gulp4": "^4.0.2"
+  },
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "MIT"
+}
