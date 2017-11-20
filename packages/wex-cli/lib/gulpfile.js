@@ -25,18 +25,19 @@ gulp.task('compile-src', done => {
 
 gulp.task('process-js', done => {
   const filename = 'dist/app.js';
+  const configJs = 'new exports.default().$$getOptions()';
   let appContent = util.readFile(filename);
   // 替换lib地址
   appContent = appContent.replace('"wex-core"', '"lib/wex-core"');
   // 追加启动入口
-  appContent += `\nApp(new exports.default().$$getAppObject())`;
+  appContent += `\nApp(${configJs})`;
   util.writeFile('dist/app.js', appContent);
 
   fse.readdirSync('dist/pages').forEach(name => {
     let p = `dist/pages/${name}/${name}.js`;
     let content = util.readFile(p);
     content = content.replace('"wex-core"', '"../../lib/wex-core"');
-    content += `\nPage(new exports.default().$$getPageObject())`;
+    content += `\nPage(${configJs})`;
     util.writeFile(p, content);
   });
   done();
