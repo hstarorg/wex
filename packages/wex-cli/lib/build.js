@@ -5,11 +5,10 @@ const gulpfilePath = util.root('lib/gulpfile.js');
 const cwd = process.cwd();
 
 function execGulpCmd(cmd) {
-  shelljs.exec(`gulp4 ${cmd} --gulpfile ${gulpfilePath} --cwd ${cwd} --color=always`);
+  shelljs.exec(`${util.command('gulp4')} ${cmd} --gulpfile ${gulpfilePath} --cwd ${cwd} --color=always`);
 }
 
 module.exports = function (cmdArgs) {
-
   if (cmdArgs.watch) {
     execGulpCmd('build:watch');
   } else {

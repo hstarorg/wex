@@ -12,10 +12,16 @@ module.exports = {
   exec(cmd, allowColor = true) {
     shelljs.exec(`${cmd} ${allowColor ? '--color=always' : ''}`);
   },
+  readFile(filename) {
+    return fs.readFileSync(filename, 'utf8');
+  },
   writeFile(filename, content) {
     if (typeof content !== 'string') {
       content = JSON.stringify(content);
     }
     fs.writeFileSync(filename, content, 'utf8');
+  },
+  command(name) {
+    return this.root(`node_modules/.bin/${name}`);
   }
 };

@@ -19,19 +19,42 @@ gulp.task('copy-wex-lib', () => {
 
 gulp.task('compile-src', done => {
   util.log('编译src目录代码');
-  util.exec('tsc', false);
+  util.exec('npm run dev', false);
+  done();
+});
+
+gulp.task('process-js', done => {
+  const filename = 'dist/app.js';
+  let appContent = util.readFile(filename);
+  // 替换lib地址
+  appContent = appContent.replace('"wex-core"', '"lib/wex-core"');
+  // 追加启动入口
+  appContent += `\nApp(new exports.default().$getAppObject())`;
+  util.writeFile('dist/app.js', appContent);
+
+  fse.readdirSync('dist/pages').forEach(name => {
+    let p = `dist/pages/${name}/${name}.js`;
+    let content = util.readFile(p);
+    content = content.replace('"wex-core"', '"../../lib/wex-core"');
+    content += `\nPage(new exports.default().$getPageObject())`;
+    util.writeFile(p, content);
+  });
   done();
 });
 
 gulp.task('copy-html', () => {
   return gulp.src('src/page[s]/**/*.html')
-    .pipe(rename({ extname: '.wxml' }))
+    .pipe(rename({
+      extname: '.wxml'
+    }))
     .pipe(gulp.dest('./dist'));
 });
 
 gulp.task('copy-css', () => {
   return gulp.src('src/page[s]/**/*.css')
-    .pipe(rename({ extname: '.wcss' }))
+    .pipe(rename({
+      extname: '.wcss'
+    }))
     .pipe(gulp.dest('./dist'));
 });
 
