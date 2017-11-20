@@ -5,10 +5,12 @@ export default class HomePage extends Page {
     a: 1,
     b: 'acc',
     name: 'xxx',
-    age: 1
+    age: 1,
+    abc: 1000,
+    user: {
+      name: 'jay'
+    }
   };
-
-  private abc = '999';
 
   onLoad() {
     console.log('页面加载');
@@ -18,14 +20,14 @@ export default class HomePage extends Page {
   onShow() {
     console.log('on Show', this.data.a);
     setInterval(() => {
-      this.data.name = Math.random().toString(16) + '---------' + this.abc;
-    }, 1000);
+      this.data.name = Math.random().toString(16) + '---------' + this.data.abc;
+    }, 10000);
   }
 
   test() {
-    this.data.age = Math.floor(Math.random() * 100);
-    this.abc =  Math.floor(Math.random() * 1000).toString();
-    this.$$vm.setData({})
+    // this.data.age = Math.floor(Math.random() * 100);
+    // this.data.abc = Math.floor(Math.random() * 1000);
+    this.data.user.name =  Math.floor(Math.random() * 1000).toString();
   }
 
   handleClick(evt: any) {

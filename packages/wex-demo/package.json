@@ -13,6 +13,6 @@
   "license": "MIT",
   "devDependencies": {
     "typescript": "^2.6.1",
-    "wex-core": "0.0.4"
+    "wex-core": "0.0.5"
   }
 }
