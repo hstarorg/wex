@@ -68,14 +68,15 @@ gulp.task('generate:app.json', done => {
   done();
 });
 
-gulp.task('build', gulp.series(
-  'clean-dist',
-  gulp.parallel('copy-wex-lib', 'compile-src'),
+gulp.task('build:wex', gulp.series(
+  'compile-src',
   gulp.parallel('generate:app.json', 'copy-html', 'copy-css', 'process-js')
 ));
 
+gulp.task('build', gulp.series('clean-dist', 'copy-wex-lib', 'build:wex'));
+
 gulp.task('watch', done => {
-  gulp.watch('src/**/*', gulp.series('compile-src'));
+  gulp.watch('src/**/*', gulp.series('build:wex'));
   done();
 });
 

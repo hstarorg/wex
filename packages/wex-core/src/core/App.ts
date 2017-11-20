@@ -22,7 +22,7 @@ export abstract class App {
 
   }
 
-  $$getAppObject() {
-    return util.getConfigObject(this, ['$$getAppObject']);
+  $$getOptions() {
+    return util.getConfigObject(this);
   }
 }

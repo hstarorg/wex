@@ -1,7 +1,9 @@
 export const util = {
-  getConfigObject(obj: any, excludeKeys: string[]): object {
+  getConfigObject(obj: any, excludeKeys?: string[]): object {
     const config = {};
-    excludeKeys.push('constructor');
+    // 保证excludeKeys是数组
+    !Array.isArray(excludeKeys) && (excludeKeys = []);
+    excludeKeys.push('constructor', '$$getOptions');
     // 先原型
     const proto = obj.constructor.prototype;
     Object.keys(proto).forEach(k => {

@@ -18,7 +18,7 @@ export abstract class Page {
 
   }
 
-  $$getPageObject() {
-    return util.getConfigObject(this, ['$$getPageObject']);
+  $$getOptions() {
+    return util.getConfigObject(this);
   }
 }

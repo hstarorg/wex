@@ -18,7 +18,7 @@ export class Component {
 
   }
 
-  $$getComponentObject() {
-    return util.getConfigObject(this, ['$$getComponentObject']);
+  $$getOptions() {
+    return util.getConfigObject(this);
   }
 }
