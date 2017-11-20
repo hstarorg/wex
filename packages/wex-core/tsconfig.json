@@ -8,6 +8,10 @@
     "experimentalDecorators": true,
     "outDir": "../wex-demo/dist/lib",
     "noImplicitAny": true,
+    "lib": [
+      "dom",
+      "esnext"
+    ],
     "suppressImplicitAnyIndexErrors": true
   },
   "exclude": [

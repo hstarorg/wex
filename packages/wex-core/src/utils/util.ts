@@ -52,16 +52,40 @@ export const util = {
     this.makeReactive(obj.data, obj);
     return config;
   },
+  getDiffObject(source: object, target: object) {
+    const plainTarget = Object.assign({}, target);
+    const targetKeys = Object.keys(target);
+    const diffObj = {};
+    targetKeys.forEach(k => {
+      let v = source[k];
+      if (!source.hasOwnProperty(k)) {
+        diffObj[k] = target[k];
+      } else if (v !== target[k]) {
+        diffObj[k] = target[k];
+      }
+    });
+    return diffObj;
+  },
   makeReactive(data: any, root: any) {
     if (!data) {
       return;
     }
     Object.keys(data).forEach(k => {
-      this.defineReactive(data, k, data[k], root);
+      let v = data[k];
+      if (this.isObject(v)) {
+        this.makeReactive(v, root);
+      } else {
+        this.defineReactive(data, k, v, root);
+      }
     });
     return data;
   },
+  isObject(value: any) {
+    const type = typeof value;
+    return value != null && (type == 'object' || type == 'function');
+  },
   defineReactive(obj: object, key: string, value: any, root: any) {
+    const self = this;
     var property = Object.getOwnPropertyDescriptor(obj, key);
     var getter = property && property.get;
     var setter = property && property.set;
@@ -84,9 +108,8 @@ export const util = {
         } else {
           value = newVal;
         }
-        root.$$vm.setData({
-          [key]: newVal
-        });
+        const diffObj = self.getDiffObject(root.$$vm.data, root.data);
+        root.$$vm.setData(diffObj);
       }
     })
   }
