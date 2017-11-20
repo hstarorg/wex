@@ -4,8 +4,8 @@ var index_1 = require("../utils/index");
 var Page = /** @class */ (function () {
     function Page(options) {
     }
-    Page.prototype.$$getPageObject = function () {
-        return index_1.util.getConfigObject(this, ['$$getPageObject']);
+    Page.prototype.$$getOptions = function () {
+        return index_1.util.getConfigObject(this);
     };
     return Page;
 }());

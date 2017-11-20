@@ -4,8 +4,8 @@ var index_1 = require("../utils/index");
 var App = /** @class */ (function () {
     function App() {
     }
-    App.prototype.$$getAppObject = function () {
-        return index_1.util.getConfigObject(this, ['$$getAppObject']);
+    App.prototype.$$getOptions = function () {
+        return index_1.util.getConfigObject(this);
     };
     return App;
 }());

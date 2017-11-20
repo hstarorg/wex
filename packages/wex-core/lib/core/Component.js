@@ -4,8 +4,8 @@ var index_1 = require("../utils/index");
 var Component = /** @class */ (function () {
     function Component(options) {
     }
-    Component.prototype.$$getComponentObject = function () {
-        return index_1.util.getConfigObject(this, ['$$getComponentObject']);
+    Component.prototype.$$getOptions = function () {
+        return index_1.util.getConfigObject(this);
     };
     return Component;
 }());
