@@ -29,14 +29,14 @@ gulp.task('process-js', done => {
   // 替换lib地址
   appContent = appContent.replace('"wex-core"', '"lib/wex-core"');
   // 追加启动入口
-  appContent += `\nApp(new exports.default().$getAppObject())`;
+  appContent += `\nApp(new exports.default().$$getAppObject())`;
   util.writeFile('dist/app.js', appContent);
 
   fse.readdirSync('dist/pages').forEach(name => {
     let p = `dist/pages/${name}/${name}.js`;
     let content = util.readFile(p);
     content = content.replace('"wex-core"', '"../../lib/wex-core"');
-    content += `\nPage(new exports.default().$getPageObject())`;
+    content += `\nPage(new exports.default().$$getPageObject())`;
     util.writeFile(p, content);
   });
   done();
@@ -70,9 +70,8 @@ gulp.task('generate:app.json', done => {
 
 gulp.task('build', gulp.series(
   'clean-dist',
-  'copy-wex-lib',
-  'compile-src',
-  gulp.parallel('generate:app.json', 'copy-html', 'copy-css')
+  gulp.parallel('copy-wex-lib', 'compile-src'),
+  gulp.parallel('generate:app.json', 'copy-html', 'copy-css', 'process-js')
 ));
 
 gulp.task('watch', done => {
